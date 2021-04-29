@@ -8,12 +8,17 @@ import (
 
 func CreateTransaction(transaction domain.Transaction) *utils.ApplicationError {
 
+	//compras e saques sempre negativos
 	if (transaction.OperationType.Id == 1 ||
 		transaction.OperationType.Id == 2 ||
-		transaction.OperationType.Id == 3) && (transaction.Amount < 0) {
+		transaction.OperationType.Id == 3) && (transaction.Amount > 0) {
 		transaction.Amount = (transaction.Amount * -1)
 	}
 
+	//pagamentos sempre positivos
+	if transaction.OperationType.Id == 4 && transaction.Amount < 0 {
+		transaction.Amount = (transaction.Amount * -1)
+	}
 	return dao.CreateTransaction(transaction)
 
 }
