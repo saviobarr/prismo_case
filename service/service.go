@@ -9,9 +9,7 @@ import (
 func CreateTransaction(transaction domain.Transaction) *utils.ApplicationError {
 
 	//compras e saques sempre negativos
-	if (transaction.OperationType.Id == 1 ||
-		transaction.OperationType.Id == 2 ||
-		transaction.OperationType.Id == 3) && (transaction.Amount > 0) {
+	if (transaction.OperationType.Id == 1 || transaction.OperationType.Id == 2 || transaction.OperationType.Id == 3) && (transaction.Amount > 0) {
 		transaction.Amount = (transaction.Amount * -1)
 	}
 

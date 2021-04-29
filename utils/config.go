@@ -16,7 +16,7 @@ type Configuration struct {
 
 func GetConfiguration() (Configuration, error) {
 	config := Configuration{}
-	file, err := os.Open("../utils/configuration.json")
+	file, err := os.Open("utils/configuration.json")
 	if err != nil {
 		return config, err
 	}
