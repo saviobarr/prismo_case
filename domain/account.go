@@ -1,6 +1,8 @@
 package domain
 
+//Account represents an account
 type Account struct {
-	Id             uint64 `json:"account_id"`
-	DocumentNumber string `json:"document_number"`
+	ID                   int64   `json:"account_id"`
+	DocumentNumber       string  `json:"document_number"`
+	AvailableCreditLimit float64 `json:"available_credit_limit"`
 }

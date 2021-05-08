@@ -8,6 +8,7 @@ import (
 	"github.com/saviobarr/prismo_case/controllers"
 )
 
+//StartApp Start listener and routers
 func StartApp() {
 
 	r := mux.NewRouter()

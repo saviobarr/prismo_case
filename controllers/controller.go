@@ -11,6 +11,7 @@ import (
 	"github.com/saviobarr/prismo_case/utils"
 )
 
+//CreateTransaction is the handler function to receive a POST request to create a transaction
 func CreateTransaction(resp http.ResponseWriter, req *http.Request) {
 	resp.Header().Add("Content-Type", "application/json")
 	var transaction domain.Transaction
@@ -39,6 +40,7 @@ func CreateTransaction(resp http.ResponseWriter, req *http.Request) {
 
 }
 
+//CreateAccount is the handler function to receive a POST request to create an account
 func CreateAccount(resp http.ResponseWriter, req *http.Request) {
 	resp.Header().Add("Content-Type", "application/json")
 
@@ -67,6 +69,7 @@ func CreateAccount(resp http.ResponseWriter, req *http.Request) {
 	resp.Write(jsonValue)
 }
 
+//GetAccount is the handler function that receives the request to find a particular account
 func GetAccount(resp http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 
@@ -88,7 +91,7 @@ func GetAccount(resp http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	account, apiErr := service.GetAccount(id)
+	account, apiErr := service.GetAccount(int64(id))
 
 	if apiErr != nil {
 

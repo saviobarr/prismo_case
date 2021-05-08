@@ -1,7 +1,16 @@
 package main
 
-import "github.com/saviobarr/prismo_case/app"
+import (
+	"fmt"
+	"math/big"
+)
 
 func main() {
-	app.StartApp()
+	//app.StartApp()
+
+	var amount big.Int
+
+	amount = 1000.35
+
+	fmt.Println()
 }
